@@ -1,11 +1,11 @@
-<div class="ember-table-cell-container">
-  <span {{bind-attr class=":ember-table-toggle-span :ember-table-toggle
-      isCollapsed:ember-table-expand:ember-table-collapse"}}
+<div class="et-cell-container">
+  <span {{bind-attr class=":et-toggle-span :et-toggle
+      isCollapsed:ember-table-expand:et-collapse"}}
       {{action 'toggleTableCollapse'}}>
-    <i class="icon-caret-down ember-table-toggle-icon"></i>
+    <i class="icon-caret-down et-toggle-icon"></i>
   </span>
-  <div class="ember-table-header-content-container">
-    <span class="ember-table-content">
+  <div class="et-header-content-container">
+    <span class="et-content">
       {{view.column.headerCellName}}
     </span>
   </div>

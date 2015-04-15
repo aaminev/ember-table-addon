@@ -1,8 +1,8 @@
-<span {{bind-attr class=":ember-table-toggle-span view.row.isLeaf::ember-table-toggle
-    view.row.isCollapsed:ember-table-expand:ember-table-collapse"}}
+<span {{bind-attr class=":et-toggle-span view.row.isLeaf::et-toggle
+    view.row.isCollapsed:ember-table-expand:et-collapse"}}
     {{action 'toggleCollapse' view.row}}>
-  <i class="icon-caret-down ember-table-toggle-icon"></i>
+  <i class="icon-caret-down et-toggle-icon"></i>
 </span>
-<span class="ember-table-content">
+<span class="et-content">
   {{view.cellContent}}
 </span>
