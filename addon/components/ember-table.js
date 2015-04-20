@@ -8,7 +8,8 @@ import GetScrollbarSize from 'ember-table/utils/get-scrollbar-size';
 export default Ember.Component.extend(
 StyleBindingsMixin, ResizeHandlerMixin, {
   classNames: ['et-tables-container'],
-  classNameBindings: ['enableContentSelection:et-content-selectable', 'scrolledX', 'scrolledY'],
+  classNameBindings: ['enableContentSelection:et-content-selectable',
+    'scrolledX:has-scrollbarX', 'scrolledY:has-scrollbarY'],
   scrolledX: Ember.computed.gt('_tableScrollLeft', 0),
   scrolledY: Ember.computed.gt('_tableScrollTop', 0),
 
