@@ -44,7 +44,7 @@
 @et-borderSize-cellVertical: @et-borderSize-vertical;
 @et-borderSize-footer: @et-borderSize;
 
-@et-borderColor: @color-grey-500;
+@et-borderColor: @color-grey-200;
 @et-borderColor-header: @et-borderColor;
 @et-borderColor-body: @et-borderColor;
 @et-borderColor-footer: @et-borderColor;
@@ -91,6 +91,7 @@
 .et-table-container {
   position: relative;
   z-index: 3;
+  box-sizing: border-box;
   overflow-x: hidden;
   // Height and Width defined dynamically through JS
   // Let Antiscroll handle the overflow
@@ -98,7 +99,6 @@
   // deal with Linux Chrome v38 wrapping bug
   // reset to normal in .et-table-block
   white-space: nowrap;
-  box-sizing: border-box;
 }
 
 .et-table-fixed-wrapper,
@@ -409,7 +409,7 @@
   }
 }
 
-.et-toggle.ember-table-expand {
+.et-toggle.et-expand {
   margin-top: -2px;
   .et-toggle-icon {
     padding-left: 0;
