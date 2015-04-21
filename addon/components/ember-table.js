@@ -276,7 +276,9 @@ StyleBindingsMixin, ResizeHandlerMixin, {
     var allColumns = this.get('columns');
     var columnsToResize = allColumns.filterProperty('canAutoResize');
     var unresizableColumns = allColumns.filterProperty('canAutoResize', false);
-    var availableWidth = this.get('_width') - this._getTotalWidth(unresizableColumns);
+    // TODO(Louis): Remove 3px from the available width to make the last column
+    // more easily sortable. Value needs to be synced with _tableColumnsWidth
+    var availableWidth = this.get('_width') - this._getTotalWidth(unresizableColumns) - 3;
     if (this.get('_hasVerticalScrollbar')) {
       availableWidth -= this.get('_scrollbarSize');
     }
@@ -360,7 +362,10 @@ StyleBindingsMixin, ResizeHandlerMixin, {
 
   // Actual width of the (non-fixed) columns
   _tableColumnsWidth: Ember.computed(function() {
-    var contentWidth = this._getTotalWidth(this.get('tableColumns'));
+    // TODO(Louis): Hack: We add 3px padding to the right of the table content
+    // so that we can reorder into the last column. This value needs
+    // to be synced with doForceFillColumns
+    var contentWidth = this._getTotalWidth(this.get('tableColumns')) + 3;
     var availableWidth = this.get('_width') - this.get('_fixedColumnsWidth');
     if (this.get('_hasVerticalScrollbar')) {
       availableWidth -= this.get('_scrollbarSize');
