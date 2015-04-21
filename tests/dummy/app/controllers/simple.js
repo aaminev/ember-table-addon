@@ -7,6 +7,7 @@ export default Ember.Controller.extend({
       savedWidth: 150,
       textAlign: 'text-align-left',
       headerCellName: 'Date',
+      canAutoResize: true,
       getCellContent: function(row) {
         return row.get('date').toDateString();
       }

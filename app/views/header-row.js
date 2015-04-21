@@ -24,7 +24,7 @@ StyleBindingsMixin, RegisterTableComponentMixin, {
       opacity: 0.9,
       placeholder: 'ui-state-highlight',
       scroll: true,
-      tolerance: 'intersect',
+      tolerance: 'pointer',
       update: Ember.$.proxy(this.onColumnSortDone, this),
       stop: Ember.$.proxy(this.onColumnSortStop, this),
       sort: Ember.$.proxy(this.onColumnSortChange, this)

@@ -277,6 +277,9 @@ StyleBindingsMixin, ResizeHandlerMixin, {
     var columnsToResize = allColumns.filterProperty('canAutoResize');
     var unresizableColumns = allColumns.filterProperty('canAutoResize', false);
     var availableWidth = this.get('_width') - this._getTotalWidth(unresizableColumns);
+    if (this.get('_hasVerticalScrollbar')) {
+      availableWidth -= this.get('_scrollbarSize');
+    }
     var doNextLoop = true;
     var nextColumnsToResize = [];
     var totalResizableWidth;
@@ -286,6 +289,9 @@ StyleBindingsMixin, ResizeHandlerMixin, {
       doNextLoop = false;
       nextColumnsToResize = [];
       totalResizableWidth = this._getTotalWidth(columnsToResize);
+      if (this.get('_hasVerticalScrollbar')) {
+        totalResizableWidth += this.get('_scrollbarSize');
+      }
       /*jshint loopfunc:true */
       // TODO(azirbel): Revisit JSHint error above
       columnsToResize.forEach(function(column) {
@@ -354,9 +360,7 @@ StyleBindingsMixin, ResizeHandlerMixin, {
 
   // Actual width of the (non-fixed) columns
   _tableColumnsWidth: Ember.computed(function() {
-    // Hack: We add 3px padding to the right of the table content so that we can
-    // reorder into the last column.
-    var contentWidth = this._getTotalWidth(this.get('tableColumns')) + 3;
+    var contentWidth = this._getTotalWidth(this.get('tableColumns'));
     var availableWidth = this.get('_width') - this.get('_fixedColumnsWidth');
     if (this.get('_hasVerticalScrollbar')) {
       availableWidth -= this.get('_scrollbarSize');
