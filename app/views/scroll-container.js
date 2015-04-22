@@ -9,7 +9,14 @@ StyleBindingsMixin, ScrollHandlerMixin, RegisterTableComponentMixin, {
   classNames: ['et-scroll-container'],
   styleBindings: ['left', 'width', 'height'],
   width: Ember.computed.alias('tableComponent._scrollContainerWidth'),
-  height: Ember.computed.alias('tableComponent._scrollbarSize'),
+  height: function() {
+    if (this.get('tableComponent._hasHorizontalScrollbar')) {
+      return this.get('tableComponent._scrollbarSize');
+    } else {
+      return 0;
+    }
+  }.property('tableComponent._scrollbarSize',
+    'tableComponent._hasHorizontalScrollbar'),
   left: Ember.computed.alias('tableComponent._fixedColumnsWidth'),
   scrollTop: Ember.computed.alias('tableComponent._tableScrollTop'),
   scrollLeft: Ember.computed.alias('tableComponent._tableScrollLeft'),
