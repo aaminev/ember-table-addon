@@ -351,6 +351,9 @@ StyleBindingsMixin, ResizeHandlerMixin, {
     var height = this.get('_height');
     var contentHeight = this.get('_tableContentHeight') +
         this.get('_headerHeight') + this.get('_footerHeight');
+    if(this.get('_hasHorizontalScrollbar')){
+      contentHeight += this.get('_scrollbarSize');
+    }
     return Math.min(contentHeight, height);
   }).property('_height', '_tableContentHeight', '_headerHeight',
       '_footerHeight'),
