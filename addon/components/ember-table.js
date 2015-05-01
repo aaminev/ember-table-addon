@@ -356,7 +356,7 @@ StyleBindingsMixin, ResizeHandlerMixin, {
     }
     return Math.min(contentHeight, height);
   }).property('_height', '_tableContentHeight', '_headerHeight',
-      '_footerHeight'),
+      '_footerHeight', '_hasHorizontalScrollbar'),
 
   // Actual width of the fixed columns
   _fixedColumnsWidth: Ember.computed(function() {
