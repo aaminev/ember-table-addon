@@ -1,4 +1,14 @@
-# Ember Table
+# Deprecated
+
+This was a temporary repository to help with Ember Table's transition to Ember
+CLI. The transition is completed, and any further work should now be done at
+https://github.com/Addepar/ember-table.
+
+This repository will be preserved for a while out of courtesy to anyone who was
+using it while we transitioned. It will eventually be shut down.
+
+
+## Ember Table
 
 A table built using [Ember.js](http://emberjs.com/) that lazily renders rows.
 
