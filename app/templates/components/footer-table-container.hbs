@@ -1,0 +1,17 @@
+<div class="et-table-fixed-wrapper">
+  {{#if numFixedColumns}}
+    {{table-block classNames="et-left-table-block"
+      content=footerContent
+      columns=fixedColumns
+      width=_fixedBlockWidth
+      height=footerHeight
+    }}
+  {{/if}}
+  {{table-block classNames="et-right-table-block"
+    content=footerContent
+    columns=tableColumns
+    scrollLeft=_tableScrollLeft
+    width=_tableBlockWidth
+    height=footerHeight
+  }}
+</div>

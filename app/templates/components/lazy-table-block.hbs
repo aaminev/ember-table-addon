@@ -1,0 +1,6 @@
+{{#each emptyArr as |temp index|}}
+	{{component itemViewClass
+  		content=(table-row-content content.content startIndex index)
+  		itemIndex=(table-row-index startIndex index)
+  	}}
+{{/each}}

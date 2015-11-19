@@ -14,6 +14,7 @@ export default Ember.Mixin.create({
     if (!this.get('tableComponent')) {
       this.set('tableComponent', this.nearestWithProperty('isEmberTable'));
     }
+    // console.log('1111, register-table', this.toString(), this.get('tableComponent'));
     return this._super();
   }
 });
